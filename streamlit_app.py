@@ -12,4 +12,5 @@ st.text('🐔 Hard-Boulded Free-Range Egg')
 
 st.text('🥑🍞 Avocado toast')
 
+st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
