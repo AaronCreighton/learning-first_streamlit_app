@@ -4,6 +4,12 @@ st.title('my Parents new Diner')
 
 st.header('Breakfast Menu')
 
-st.text('Omega 3 & Blueberry Oatmeal \n Kale, Spinach & Rocket Smoothie \n Hard-Boulded Free-Range Egg')
+st.text('🥣 Omega 3 & Blueberry Oatmeal')
+
+st.text('🥗 Kale, Spinach & Rocket Smoothie') 
+
+st.text('🐔 Hard-Boulded Free-Range Egg')
+
+st.text('🥑🍞 Avocado toast')
 
 
