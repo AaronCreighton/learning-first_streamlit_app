@@ -55,7 +55,8 @@ my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") #return account info
 my_cur.execute("Select * from fruit_load_list")
-my_data_row = my_cur.fetchone()
+#my_data_row = my_cur.fetchone()
+my_data_rows = my_cur.fetchall()
 st.header("the fruit Load list contains:")
 st.dataframe(my_data_row)
 
