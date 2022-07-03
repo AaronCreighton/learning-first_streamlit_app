@@ -53,8 +53,9 @@ import snowflake.connector
 # Query account metadata
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") #return account info
+my_cur.execute("Select * from furit_load_list")
 my_data_row = my_cur.fetchone()
-st.text("Hello from Snowflake:")
-st.text(my_data_row)
+st.header("the fruit Load list contains:")
+st.dataframe(my_data_row)
 
