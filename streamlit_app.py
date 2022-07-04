@@ -52,7 +52,7 @@ except URLError as e:
     st.error()
 
 #don't run anything pas here while we troubleshoot
-st.stop()
+#st.stop()
 
 #import snowflake.connector
 
