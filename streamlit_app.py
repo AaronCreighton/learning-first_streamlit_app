@@ -5,17 +5,11 @@ import snowflake.connector
 from urllib.error import URLError
 
 st.title('my Parents new Diner')
-
 st.header('Breakfast Menu')
-
 st.text('🥣 Omega 3 & Blueberry Oatmeal')
-
 st.text('🥗 Kale, Spinach & Rocket Smoothie') 
-
 st.text('🐔 Hard-Boulded Free-Range Egg')
-
 st.text('🥑🍞 Avocado toast')
-
 st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 #import pandas
@@ -38,18 +32,22 @@ st.header("Fruityvice Fruit Advice!")
 
 #import requests
 
-fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
-st.write('The user entered ', fruit_choice)
+try:
+    fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
+    if not fruit_choice:
+        st.error("Please select a fruit to get information.")
+    else:
+        st.write('The user entered ', fruit_choice)
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-# st.text(fruityvice_response.json()) # no json() 200, with turns data to txt 
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+        # st.text(fruityvice_response.json()) # no json() 200, with turns data to txt 
 
-
-
-# write your own comment -what does the next line do? 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?
-st.dataframe(fruityvice_normalized)
+        # write your own comment -what does the next line do? 
+        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+        # write your own comment - what does this do?
+        st.dataframe(fruityvice_normalized)
+except URLError as e:
+    st.error()
 
 #don't run anything pas here while we troubleshoot
 st.stop()
