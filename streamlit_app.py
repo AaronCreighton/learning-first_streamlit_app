@@ -56,16 +56,23 @@ st.stop()
 
 #import snowflake.connector
 
-
-# Query account metadata
-my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
+# Query account data
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()") #return account info
-my_cur.execute("Select * from fruit_load_list")
-#my_data_row = my_cur.fetchone()
-my_data_rows = my_cur.fetchall()
+
+
 st.header("the fruit Load list contains:")
-st.dataframe(my_data_rows)
+# snowflake-related functions
+def get_fruit_load_list():
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("Select * from fruit_load_list")
+        #my_data_row = my_cur.fetchone()
+        return my_cur.fetchall()
+
+# add button to load the fruit
+if st.button('GetFruit Load List'):
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+    my_data_rows = get_fruit_load_list()
+    st.dataframe(my_data_rows)
 
 #Allow the end user to add a fruit to the list
 add_my_fruit = st.text_input('What fruit would you like to add?','jackfruit')
