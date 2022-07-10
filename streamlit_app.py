@@ -28,8 +28,13 @@ st.dataframe(my_fruit_list)
 # Display the Results on the page.
 st.dataframe(fruits_to_show)
 
+<<<<<<< HEAD
 #st.text('Alternatively Pick ')
 #
+=======
+st.text('Alternatively Pick ')
+
+>>>>>>> c5f560a847d9b5f4b4108d52fceae2f4557c6345
 #import requests
 
 #create the repeatable code black 
@@ -85,6 +90,7 @@ def insert_row_snowflake(new_fruit):
         return "Thanks for adding " + new_fruit
 
 # Empty table
+
 #def truncate_row_snowflake():
 #    with my_cnx.cursor() as my_cur:
 #        my_cur.execute("truncate fruit_load_list")
@@ -93,6 +99,7 @@ def insert_row_snowflake(new_fruit):
 add_my_fruit = st.text_input('What fruit would you like to add?','jackfruit')
 #add_wanted_fruit_low = add_my_fruit.lower()
 #my_availble_fruit = str(my_fruit_list.index).lower()
+
 
 if add_wanted_fruit_low in my_availble_fruit or add_my_fruit == False:
     st.text('We have this fruit already, What else do you like?')
@@ -104,12 +111,14 @@ else:
         my_cnx.close()
         st.text(back_from_function)
 
+<<<<<<< HEAD
 
 # if st.button('Reset List'):
 #         my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 #         back_from_function = truncate_row_snowflake()
 #         my_cnx.close()
 #         st.text(back_from_function)
+
 
 
 
