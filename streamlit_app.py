@@ -28,6 +28,8 @@ st.dataframe(my_fruit_list)
 # Display the Results on the page.
 st.dataframe(fruits_to_show)
 
+st.text('Alternatively Pick ')
+
 #import requests
 
 #create the repeatable code black 
@@ -83,9 +85,16 @@ def insert_row_snowflake(new_fruit):
         return "Thanks for adding " + new_fruit
      
 add_my_fruit = st.text_input('What fruit would you like to add?','jackfruit')
-if st.button('add a Fruit to the List'):
-    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-    back_from_function = insert_row_snowflake(add_my_fruit)
-    my_cnx.close()
-    st.text(back_from_function)
+if add_my_fruit in my_fruit_list.index:
+    st.text('We have this fruit already')
+else:
+        
+    if st.button('add a Fruit to the List'):
+        my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+        back_from_function = insert_row_snowflake(add_my_fruit)
+        my_cnx.close()
+        st.text(back_from_function)
 
+    #if st.button('Reset'):
+    #my_fruit_list
+    
