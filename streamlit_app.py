@@ -28,13 +28,9 @@ st.dataframe(my_fruit_list)
 # Display the Results on the page.
 st.dataframe(fruits_to_show)
 
-<<<<<<< HEAD
 #st.text('Alternatively Pick ')
 #
-=======
-st.text('Alternatively Pick ')
 
->>>>>>> c5f560a847d9b5f4b4108d52fceae2f4557c6345
 #import requests
 
 #create the repeatable code black 
@@ -101,17 +97,16 @@ add_my_fruit = st.text_input('What fruit would you like to add?','jackfruit')
 #my_availble_fruit = str(my_fruit_list.index).lower()
 
 
-if add_wanted_fruit_low in my_availble_fruit or add_my_fruit == False:
-    st.text('We have this fruit already, What else do you like?')
-else:
+#if add_wanted_fruit_low in my_availble_fruit or add_my_fruit == False:
+#    st.text('We have this fruit already, What else do you like?')
+#else:
         
-    if st.button('add a Fruit to the List'):
-        my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-        back_from_function = insert_row_snowflake(add_my_fruit)
-        my_cnx.close()
-        st.text(back_from_function)
+if st.button('add a Fruit to the List'):
+    my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+    back_from_function = insert_row_snowflake(add_my_fruit)
+    my_cnx.close()
+    st.text(back_from_function)
 
-<<<<<<< HEAD
 
 # if st.button('Reset List'):
 #         my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
