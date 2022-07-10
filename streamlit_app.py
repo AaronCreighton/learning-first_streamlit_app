@@ -91,7 +91,7 @@ def truncate_row_snowflake():
      
 add_wanted_fruit = st.text_input('What fruit would you like to add?','jackfruit')
 add_wanted_fruit_low = add_wanted_fruit.lower()
-my_availble_fruit = my_fruit_list.index.lower()
+my_availble_fruit = str(my_fruit_list.index).lower()
 
 if add_wanted_fruit_low in my_availble_fruit:
     st.text('We have this fruit already, What else do you like?')
